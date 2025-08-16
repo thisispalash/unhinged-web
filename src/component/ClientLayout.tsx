@@ -1,8 +1,12 @@
 'use client';
 
+import { PrivyProvider } from '@privy-io/react-auth';
+import { base, flowMainnet } from 'viem/chains';
+
 import cn from '@/util/cn';
 
 import LoadingProvider, { useLoading } from '@/context/LoadingContext';
+import AuthProvider from '@/context/AuthContext';
 
 import Loader from '@/component/Loader';
 
@@ -10,8 +14,22 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <LoadingProvider>
-      <Loader />
-      <ClientLayoutContent>{children}</ClientLayoutContent>
+      <PrivyProvider
+        appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ''}
+        clientId={process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID || ''}
+        config={{
+          defaultChain: flowMainnet,
+          supportedChains: [base, flowMainnet],
+          embeddedWallets: {
+            createOnLogin: 'all-users',
+          }
+        }}
+      >
+        <AuthProvider>
+          <Loader />
+          <ClientLayoutContent>{children}</ClientLayoutContent>
+        </AuthProvider>
+      </PrivyProvider>
     </LoadingProvider>
   );
 }
