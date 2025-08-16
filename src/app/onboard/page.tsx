@@ -8,6 +8,16 @@ import cn from '@/util/cn';
 import UserDisplay from '@/component/UserDisplay';
 import TextArea from '@/component/primitive/TextArea';
 import Button from '@/component/primitive/Button';
+import Link from '@/component/primitive/Link';
+
+const suggestions = [
+  'Pineapple belongs on pizza.',
+  'Thanos was a hundred percent right.',
+  'Democracy is for the people, of the people, by the people; but the people are retarded!',
+  'Believe in somETHing? I believe in Bitcoin. Heck even Solana!',
+  'Blockchain, crypto, and scammer\'s paradise, they\'re all the same.',
+  'A hot dog is a taco.',
+]
 
 export default function OnboardPage() {
 
@@ -25,6 +35,10 @@ export default function OnboardPage() {
       body: JSON.stringify({ take, template }),
     })
     .then(() => router.push(redirect ?? '/home'))
+  }
+
+  const suggestTake = () => {
+    setTake(suggestions[Math.floor(Math.random() * suggestions.length)]);
   }
 
   return (
@@ -53,6 +67,9 @@ export default function OnboardPage() {
             maxSize={200}
             placeholder="max 200 characters.."
           />
+          <Link href="#" onClick={suggestTake} className="font-user w-full text-right">
+            suggest
+          </Link>
         </div>
       )}
 
