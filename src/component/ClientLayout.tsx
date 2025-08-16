@@ -53,7 +53,7 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
     )}>
       <div className={cn(
         'w-full sm:w-[400px]', // Show a box on non-mobile
-        'mx-auto py-12',
+        'mx-auto py-12 sm:px-6',
         'bg-background',
         // 'flex flex-col items-center',
         'sm:border sm:border-foreground sm:rounded-lg',
