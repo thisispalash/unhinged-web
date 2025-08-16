@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Indie_Flower, Quicksand } from 'next/font/google';
 import './globals.css';
 
+import ClientLayout from '@/component/ClientLayout';
+
 const indieFlower = Indie_Flower({
   variable: '--font-indie-flower',
   subsets: ['latin'],
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body
         className={`${indieFlower.variable} ${quicksand.variable} antialiased`}
       >
-        {children}
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
