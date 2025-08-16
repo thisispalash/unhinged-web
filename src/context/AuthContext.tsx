@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { type User, usePrivy } from '@privy-io/react-auth';
 
@@ -16,7 +16,15 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
   const pathname = usePathname();
   const { authenticated, user } = usePrivy();
 
-  if (!authenticated && pathname !== '/login' && pathname !== '/') router.push(`/login?redirect=${pathname}`);
+  useEffect(() => {
+    if (
+      !authenticated 
+      && pathname !== '/login' 
+      && pathname !== '/'
+    )  {
+      router.push(`/login?redirect=${pathname.split('/').slice(1).join('/')}`);
+    }
+  }, [authenticated, pathname, router]);
 
   return (
     <AuthContext.Provider value={{ user }}>
