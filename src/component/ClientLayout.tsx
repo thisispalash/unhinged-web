@@ -22,6 +22,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           supportedChains: [base, flowMainnet],
           embeddedWallets: {
             createOnLogin: 'all-users',
+          },
+          appearance: {
+            // logo: '/img/wordmark.png', // TODO: make 2:1 logo
+            landingHeader: 'Got any spicy takes?',
+            loginMessage: 'And can you defend them?',
           }
         }}
       >

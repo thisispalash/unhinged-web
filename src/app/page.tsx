@@ -20,7 +20,7 @@ export default function Home() {
         'w-full'
       )}>
         <Button
-          onClick={() => router.push('/login?mode=arena')}
+          onClick={() => router.push('/arena')}
           className={cn(
             'w-1/2',
             'text-2xl uppercase',
