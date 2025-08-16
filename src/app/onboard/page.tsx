@@ -14,9 +14,11 @@ const suggestions = [
   'Pineapple belongs on pizza.',
   'Thanos was a hundred percent right.',
   'Democracy is for the people, of the people, by the people; but the people are retarded!',
-  'Believe in somETHing? I believe in Bitcoin. Heck even Solana!',
+  'Believe in somETHing? Nah brah, go with the FLOW!',
   'Blockchain, crypto, and scammer\'s paradise, they\'re all the same.',
   'A hot dog is a taco.',
+  'The scientific method is objective, science is subjective.',
+  'Vaccines cause autism.'
 ]
 
 export default function OnboardPage() {
