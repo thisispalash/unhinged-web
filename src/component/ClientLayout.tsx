@@ -18,7 +18,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ''}
         clientId={process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID || ''}
         config={{
-          defaultChain: flowMainnet,
+          defaultChain: base,
           supportedChains: [base, flowMainnet],
           embeddedWallets: {
             createOnLogin: 'all-users',
