@@ -24,9 +24,19 @@ export default function BaitPageTemplate2() {
         <meta name="twitter:creator" content="@theprimefibber" />
         <meta name="twitter:title" content="Unhinged | Baited" />
         <meta name="twitter:description" content={`Baited by ${user} on Unhinged`} />
+        <meta name="twitter:url" content={`https://nhinged.io`} />
         <meta name="twitter:image" content="https://nhinged.io/img/template2.png" />
         <meta name="twitter:image:alt" content={`Unhinged | Baited by ${user}`} />
-        <meta name="twitter:url" content={`https://nhinged.io/bait/0?user=${user}`} />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="900" />
+
+        <meta name="og:title" content="Unhinged | Baited" />
+        <meta name="og:description" content={`Baited by ${user} on Unhinged`} />
+        <meta name="og:url" content={`https://nhinged.io`} />
+        <meta name="og:image" content="https://nhinged.io/img/template2.png" />
+        <meta name="og:image:alt" content={`Unhinged | Baited by ${user}`} />
+        <meta name="og:image:width" content="1200" />
+        <meta name="og:image:height" content="900" />
       </head>
 
       <div className={cn(
