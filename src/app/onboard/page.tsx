@@ -32,7 +32,7 @@ export default function OnboardPage() {
 
   const finishOnboarding = (template: 0 | 1 | 2) => {
     console.log('finishOnboarding', take, template);
-    if (!take || take.length > 200) return;
+    if (!take || take.length > 140) return;
 
     // save to local storage
     localStorage.setItem('unhinged:take', take);
@@ -75,8 +75,8 @@ export default function OnboardPage() {
           <TextArea
             value={take ?? ''}
             onChange={setTake}
-            maxSize={200}
-            placeholder="max 200 characters.."
+            maxSize={140}
+            placeholder="max 140 characters.."
           />
           <Link href="#" onClick={suggestTake} className="font-user text-right w-fit self-end">
             suggest
@@ -93,7 +93,7 @@ export default function OnboardPage() {
           <Button
             onClick={() => setStep(1)}
             className="w-full font-user"
-            isDisabled={!take || take.length > 200}
+            isDisabled={!take || take.length > 140}
           >
             select template
           </Button>
