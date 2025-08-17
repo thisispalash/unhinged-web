@@ -33,11 +33,17 @@ export default function OnboardPage() {
   const finishOnboarding = (template: 0 | 1 | 2) => {
     console.log('finishOnboarding', take, template);
     if (!take || take.length > 200) return;
+
+    // save to local storage
+    localStorage.setItem('unhinged:take', take);
+    localStorage.setItem('unhinged:template', template.toString());
+
+    // TODO: transact via privy
     fetch('/api/onboard', {
       method: 'POST',
       body: JSON.stringify({ take, template }),
     })
-    .then(() => router.push(redirect ?? '/home'))
+    .then(() => router.push(redirect ?? '/arena'))
   }
 
   const suggestTake = () => {
@@ -50,14 +56,16 @@ export default function OnboardPage() {
       'flex flex-col gap-6',
       'justify-between items-center',
     )}>
-      <div className={cn(
-        'flex flex-col gap-1',
-        'items-center',
-        'text-xl'
-      )}>
-        <span className="font-user text-2xl">Welcome to Unhinged,</span>
-        <UserDisplay />
-      </div>
+      {step === 0 && (
+        <div className={cn(
+          'flex flex-col gap-1',
+          'items-center',
+          'text-xl'
+        )}>
+          <span className="font-user text-2xl">Welcome to Unhinged,</span>
+          <UserDisplay />
+        </div>
+      )}
 
       {step === 0 && (
         <div className={cn(
@@ -70,7 +78,7 @@ export default function OnboardPage() {
             maxSize={200}
             placeholder="max 200 characters.."
           />
-          <Link href="#" onClick={suggestTake} className="font-user w-full text-right">
+          <Link href="#" onClick={suggestTake} className="font-user text-right w-fit self-end">
             suggest
           </Link>
         </div>
@@ -89,6 +97,19 @@ export default function OnboardPage() {
           >
             select template
           </Button>
+        </div>
+      )}
+
+      {/* Select template */}
+
+      {step === 1 && (
+        <div className={cn(
+          'flex flex-col gap-1',
+          'items-center',
+          'text-xl lowercase'
+        )}>
+          <span className="font-user text-2xl">Select a template</span>
+          <span className="font-user text-2xl">to represent your take</span>
         </div>
       )}
 

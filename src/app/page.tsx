@@ -40,6 +40,7 @@ export default function Home() {
         >
           <span className="translate-y-1">Spectate</span>
         </Button>
+        <span className="text-base font-user italic">full functionality coming by labor day</span>
       </div>
       <Link href="docs" isDisabled>docs</Link>
     </div>

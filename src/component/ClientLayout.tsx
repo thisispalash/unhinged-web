@@ -52,7 +52,7 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
         'transition-opacity duration-1000',
         isLoading ? 'opacity-0' : 'opacity-100',
         'bg-background sm:bg-foreground',
-        'text-system'
+        'font-user lowercase'
       )}>
         <div className={cn(
           'w-full sm:w-[400px]', // Show a box on non-mobile

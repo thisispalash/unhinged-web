@@ -47,7 +47,7 @@ export default function TextArea({
         rows={rows}
         className={cn(
           'w-full h-full',
-          'px-2 py-1 font-user',
+          'px-4 py-3 font-user',
           'border border-foreground',
           'rounded-lg text-xl',
           'resize-none',
