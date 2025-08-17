@@ -6,9 +6,17 @@ import { usePrivy } from '@privy-io/react-auth';
 
 import cn from '@/util/cn';
 
+import { useAuth } from '@/context/AuthContext';
+
 import Link from '@/component/primitive/Link';
 import Button from '@/component/primitive/Button';
 import UserDisplay from '@/component/UserDisplay';
+
+const taunts = [
+  'im not wrong, ur wrong.\n\nshare yours on #unhinged by @theprimefibber',
+  'yeah, i said it. what you gonna do?\n\nbattle me on #unhinged by @theprimefibber',
+  'fight me bro. fucking fight me.\n\non #unhinged by @theprimefibber'
+]
 
 function LogoutButton() {
 
@@ -29,8 +37,10 @@ export default function ArenaPage() {
 
   const [ imgSrc, setImgSrc ] = useState<string | null>(null);
   const [ take, setTake ] = useState<string | null>(null);
-  
+  const [ template, setTemplate ] = useState<number | null>(null);
+
   const router = useRouter();
+  const { display } = useAuth();
 
   useEffect(() => {
     const template = localStorage.getItem('unhinged:template');
@@ -39,11 +49,20 @@ export default function ArenaPage() {
     if (template && take) {
       setImgSrc(`/img/template${template}.png`);
       setTake(take);
+      setTemplate(Number(template));
     }
   }, []);
 
   const makeTweetIntent = () => {
-    router.push('https://twitter.com/intent/tweet?text=');
+    const tweetText = `Here's my take,\n"${take}"\n\n${taunts[template ?? 1]}\n`;
+    
+    const params = new URLSearchParams({
+      text: tweetText,
+      url: `https://nhinged.io/bait?user=${display}`,
+    });
+
+    const url = `https://twitter.com/intent/tweet?${params.toString()}`;
+    window.open(url, '_blank');
   }
 
   const collectEmail = () => {
@@ -51,9 +70,8 @@ export default function ArenaPage() {
   }
 
   const makeFollowIntent = () => {
-    router.push('https://twitter.com/intent/follow?screen_name=theprimefibber');
+    window.open('https://x.com/intent/follow?screen_name=theprimefibber', '_blank');
   }
-
 
   return (
     <div className={cn(
