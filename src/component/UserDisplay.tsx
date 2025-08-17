@@ -14,6 +14,7 @@ export default function UserDisplay() {
       'items-center',
     )}>
       {pfp && (
+        // eslint-disable-next-line @next/next/no-img-element
         <img 
           src={pfp} 
           alt="x-pfp" 

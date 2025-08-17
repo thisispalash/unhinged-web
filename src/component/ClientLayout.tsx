@@ -1,5 +1,7 @@
 'use client';
 
+import { Suspense } from 'react';
+
 import { PrivyProvider } from '@privy-io/react-auth';
 import { base, flowMainnet } from 'viem/chains';
 
@@ -44,22 +46,24 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
   const { isLoading } = useLoading();
 
   return (
-    <main className={cn(
-      'flex min-h-screen w-full p-6',
-      'transition-opacity duration-1000',
-      isLoading ? 'opacity-0' : 'opacity-100',
-      'bg-background sm:bg-foreground',
-      'text-system'
-    )}>
-      <div className={cn(
-        'w-full sm:w-[400px]', // Show a box on non-mobile
-        'mx-auto py-12 sm:px-6',
-        'bg-background',
-        // 'flex flex-col items-center',
-        'sm:border sm:border-foreground sm:rounded-lg',
+    <Suspense fallback={<Loader />}>
+      <main className={cn(
+        'flex min-h-screen w-full p-6',
+        'transition-opacity duration-1000',
+        isLoading ? 'opacity-0' : 'opacity-100',
+        'bg-background sm:bg-foreground',
+        'text-system'
       )}>
-        {children}
-      </div>
-    </main>
+        <div className={cn(
+          'w-full sm:w-[400px]', // Show a box on non-mobile
+          'mx-auto py-12 sm:px-6',
+          'bg-background',
+          // 'flex flex-col items-center',
+          'sm:border sm:border-foreground sm:rounded-lg',
+        )}>
+          {children}
+        </div>
+      </main>
+    </Suspense>
   );
 } 

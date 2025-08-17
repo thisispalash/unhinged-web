@@ -63,7 +63,7 @@ export default function OnboardPage() {
         <div className={cn(
           'flex flex-col gap-4',
         )}>
-          <span className="font-user text-4xl">what's your hot take?</span>
+          <span className="font-user text-4xl">what&apos;s your hot take?</span>
           <TextArea
             value={take ?? ''}
             onChange={setTake}
@@ -96,18 +96,21 @@ export default function OnboardPage() {
         <div className={cn(
           'flex flex-col gap-2',
         )}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/img/template0.png" 
             alt="template 0" 
             className="aspect-16/9 rounded-sm p-1 border border-foreground cursor-pointer" 
             onClick={() => finishOnboarding(0)}
           />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/img/template1.png" 
             alt="template 1" 
             className="aspect-16/9 rounded-sm p-1 border border-foreground cursor-pointer" 
             onClick={() => finishOnboarding(1)}
           />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/img/template2.png" 
             alt="template 2" 
