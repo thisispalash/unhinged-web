@@ -32,6 +32,7 @@ export default function OnboardPage() {
 
   const finishOnboarding = (template: 0 | 1 | 2) => {
     console.log('finishOnboarding', take, template);
+    if (!take || take.length > 200) return;
     fetch('/api/onboard', {
       method: 'POST',
       body: JSON.stringify({ take, template }),
@@ -84,6 +85,7 @@ export default function OnboardPage() {
           <Button
             onClick={() => setStep(1)}
             className="w-full font-user"
+            isDisabled={!take || take.length > 200}
           >
             select template
           </Button>
