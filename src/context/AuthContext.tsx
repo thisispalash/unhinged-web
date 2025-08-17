@@ -37,6 +37,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
       !authenticated 
       && pathname !== '/login' 
       && pathname !== '/'
+      && !pathname.includes('/bait')
     )  {
       router.push(`/login?redirect=${pathname.split('/').slice(1).join('/')}`);
     }

@@ -58,7 +58,7 @@ export default function ArenaPage() {
     
     const params = new URLSearchParams({
       text: tweetText,
-      url: `https://nhinged.io/bait?user=${display}`,
+      url: `https://nhinged.io/bait/${template}?user=${display}`,
     });
 
     const url = `https://twitter.com/intent/tweet?${params.toString()}`;
