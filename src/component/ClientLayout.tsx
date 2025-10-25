@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 
 import { PrivyProvider } from '@privy-io/react-auth';
-import { base, flowMainnet } from 'viem/chains';
+import { base } from 'viem/chains';
 
 import cn from '@/util/cn';
 
@@ -21,14 +21,14 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         clientId={process.env.NEXT_PUBLIC_PRIVY_CLIENT_ID || ''}
         config={{
           defaultChain: base,
-          supportedChains: [base, flowMainnet],
+          supportedChains: [base],
           embeddedWallets: {
             createOnLogin: 'all-users',
           },
           appearance: {
             // logo: '/img/wordmark.png', // TODO: make 2:1 logo
-            landingHeader: 'Got any spicy takes?',
-            loginMessage: 'And can you defend them?',
+            landingHeader: 'Is this the hill you die on?',
+            // loginMessage: 'Can you defend your takes?',
           }
         }}
       >
