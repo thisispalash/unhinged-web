@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 import View from './View';
 
 type Props = {
-  params: { templateNum: string };
-  searchParams: { user?: string };
+  params: Promise<{ templateNum: string }>;
+  searchParams: Promise<{ user?: string }>;
 };
 
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
