@@ -55,7 +55,7 @@ function ClientLayoutContent({ children }: { children: React.ReactNode }) {
         'font-user lowercase'
       )}>
         <div className={cn(
-          'w-full sm:w-[400px]', // Show a box on non-mobile
+          'w-full sm:w-[400px] md:w-[600px]', // Show a box on non-mobile
           'mx-auto py-12 sm:px-6',
           'bg-background',
           // 'flex flex-col items-center',

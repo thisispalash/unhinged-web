@@ -14,10 +14,12 @@ export default function Loader() {
     <div className={cn(
       'fixed inset-0 z-50 flex items-center justify-center',
       'transition-all duration-1000',
+      'bg-background sm:bg-foreground',
       isLoading ? 'scale-100' : 'scale-[20] opacity-0 pointer-events-none'
     )}>
       <div className={cn(
-        'h-full w-full relative',
+        'relative h-full',
+        'w-full sm:w-[400px] md:w-[600px]', // Show a box on non-mobile
         isLoading && 'animate-pulse'
       )}>
         <Image
