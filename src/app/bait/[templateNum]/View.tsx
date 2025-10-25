@@ -1,6 +1,5 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 import cn from '@/util/cn';
@@ -9,16 +8,14 @@ import { useAuth } from '@/context/AuthContext';
 
 import Button from '@/component/primitive/Button';
 
-export default function BaitPageTemplate2() {
+export default function View({ templateNum, user }: { templateNum: string, user?: string }) {
 
-  const searchParams = useSearchParams();
-  const user = searchParams.get('user');
   const router = useRouter();
 
   const { user: privyUser } = useAuth();
 
   return <>
-      <head>
+      {/* <head>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@theprimefibber" />
         <meta name="twitter:creator" content="@theprimefibber" />
@@ -37,7 +34,7 @@ export default function BaitPageTemplate2() {
         <meta name="og:image:alt" content={`Unhinged | Baited by ${user}`} />
         <meta name="og:image:width" content="1200" />
         <meta name="og:image:height" content="900" />
-      </head>
+      </head> */}
 
       <div className={cn(
         'w-full h-full',
@@ -56,8 +53,11 @@ export default function BaitPageTemplate2() {
           'border border-foreground rounded-sm',
         )}>
           {/* // eslint-disable-next-line @next/next/no-img-element */}
-          <img src={"/img/template2.png"} alt="arena" className={cn(
-            'aspect-4/3',
+          <img src={`/img/template${templateNum}.png`} alt="arena" className={cn(
+            {
+              'aspect-3/4': templateNum === '0',
+              'aspect-4/3': templateNum === '1' || templateNum === '2',
+            },
             'object-contain rounded-md'
           )}/>
         </div>

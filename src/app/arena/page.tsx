@@ -124,12 +124,12 @@ export default function ArenaPage() {
         'flex flex-col gap-3'
       )}>
         <Button onClick={makeFollowIntent} className="w-full px-1.5 py-1 sm:font-system">follow development</Button>
-        <Button onClick={collectEmail} className="w-full px-1.5 py-0.5 font-system sm:hidden">get notified?</Button>
+        {/* <Button onClick={collectEmail} className="w-full px-1.5 py-0.5 font-system sm:hidden">get notified?</Button> */}
       </div>
 
 
       {/* Disclaimer */}
-      <div className={cn(
+      {/* <div className={cn(
         'fixed bottom-0',
         'w-full pb-2 sm:pb-4 px-4',
         'flex-row justify-between items-center',
@@ -138,7 +138,7 @@ export default function ArenaPage() {
       )}>
         <Button onClick={collectEmail} className="border-none">get notified?</Button>
         <span>Product goes live Labor Day!</span>
-      </div>
+      </div> */}
     </div>
   );
 }

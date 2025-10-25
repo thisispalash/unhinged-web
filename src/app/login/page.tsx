@@ -43,7 +43,7 @@ export default function Login() {
       'justify-center items-center',
     )}>
       <PrivyLogin />
-      <Link href="#" onClick={nfcLogin} isDisabled className="font-user">At ETHGlobal?</Link>
+      <Link href="#" onClick={nfcLogin} isDisabled className="font-user">Attended ETHGlobal?</Link>
     </div>
   )
 }
